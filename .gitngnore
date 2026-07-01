@@ -1,0 +1,18 @@
+# Python
+*.pyc
+__pycache__/
+.pytest_cache/
+.venv/
+venv/
+
+# Entorno y secretos
+.env
+
+# Terraform (¡nunca subas el estado!)
+*.tfstate*
+.terraform/
+
+# Sistema / IDE
+.DS_Store
+.vscode/
+.idea/
