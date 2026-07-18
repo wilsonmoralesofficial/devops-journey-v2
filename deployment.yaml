@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: api
-          image: ghcr.io/wilsonmoralesofficial/devops-journey-v2:main
+          image: ghcr.io/wilsonmoralesofficial/devops-journey-v2:main-e0a0bd2
           ports:
             - containerPort: 8000
           envFrom:
