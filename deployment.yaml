@@ -1,0 +1,43 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: mi-api
+  labels:
+    app: mi-api
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: mi-api
+  template:
+    metadata:
+      labels:
+        app: mi-api
+    spec:
+      containers:
+        - name: api
+          image: ghcr.io/wilsonmoralesofficial/devops-journey-v2:main
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: mi-api-config     # ← AQUÍ se conecta el ConfigMap
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "200m"
+          readinessProbe:               # ← ¿está lista para recibir tráfico?
+            httpGet:
+              path: /salud
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:                # ← ¿sigue viva? si no, la reinicia
+            httpGet:
+              path: /salud
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 30

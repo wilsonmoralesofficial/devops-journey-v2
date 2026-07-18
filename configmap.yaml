@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: mi-api-config
+  labels:
+    app: mi-api
+data:
+  DB_HOST: "postgres.default.svc.cluster.local"
+  DB_PORT: "5432"
+  DB_USER: "admin"
+  DB_NAME: "midb"
+  LOG_LEVEL: "info"
