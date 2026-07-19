@@ -16,7 +16,8 @@ spec:
     spec:
       containers:
         - name: api
-          image: ghcr.io/wilsonmoralesofficial/devops-journey-v2:main-e0a0bd2
+          image: ghcr.io/wilsonmoralesofficial/devops-journey-v2:main
+          imagePullPolicy: Always   # ← fuerza a bajar siempre la última
           ports:
             - containerPort: 8000
           envFrom:
