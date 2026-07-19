@@ -9,8 +9,8 @@ venv/
 .env
 
 # Terraform (¡nunca subas el estado!)
-*.tfstate*
-.terraform/
+terraform-aws/*.tfstate*
+terraform-aws/.terraform/
 
 # Sistema / IDE
 .DS_Store
